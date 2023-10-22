@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/myBlog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/myBlog/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-10-22T17:03:51-04:00</updated><id>http://localhost:4000/myBlog/feed.xml</id><title type="html">blog</title><subtitle>A Jekyll theme with JavaScript powers. &quot;Best Theme by a Mile&quot;. Combines the best of static sites and modern web apps. Open `_config.yml` to edit this text.
+</subtitle><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><entry><title type="html">C++ Understanding</title><link href="http://localhost:4000/myBlog/2023/10/01/C++/" rel="alternate" type="text/html" title="C++ Understanding" /><published>2023-10-01T00:00:00-04:00</published><updated>2023-10-01T00:00:00-04:00</updated><id>http://localhost:4000/myBlog/2023/10/01/C++</id><content type="html" xml:base="http://localhost:4000/myBlog/2023/10/01/C++/"><![CDATA[<p><a href="http://ultra.sdk.free.fr/docs/DxO/C%2B%2B%20Templates%20The%20Complete%20Guide.pdf">C++ template complete guide</a></p>
+
+<p>template template parameters:
+The name of a template parameter of a template template parameter can be used only in the declaration of other
+parameters of that template template parameter. The following contrived template illustrates this concept:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="n">T</span><span class="o">*</span><span class="p">&gt;</span> <span class="k">class</span> <span class="nc">Buf</span><span class="p">&gt;</span>
+<span class="k">class</span> <span class="nc">Lexer</span> <span class="p">{</span>
+ <span class="k">static</span> <span class="kt">char</span> <span class="n">storage</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+ <span class="n">Buf</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Lexer</span><span class="o">&lt;</span><span class="n">Buf</span><span class="o">&gt;::</span><span class="n">storage</span><span class="o">&gt;</span> <span class="n">buf</span><span class="p">;</span>
+ <span class="err">…</span>
+<span class="p">};</span> <span class="c1">// OK</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">&gt;</span> <span class="k">class</span> <span class="nc">List</span><span class="p">&gt;</span>
+<span class="k">class</span> <span class="nc">Node</span> <span class="p">{</span>
+ <span class="k">static</span> <span class="n">T</span><span class="o">*</span> <span class="n">storage</span><span class="p">;</span> <span class="c1">// ERROR: a parameter of a template template</span>
+ <span class="c1">// parameter cannot be used here</span>
+ <span class="err">…</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>CMake <a href="https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html#solution">tutorial</a></p>
+
+<p>C++ friend <a href="https://blog.csdn.net/weixin_38293850/article/details/80191242">tutorial</a></p>
+
+<p>qualified vs unqualified:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">extern</span> <span class="kt">int</span> <span class="n">count</span><span class="p">;</span> <span class="c1">// (1)</span>
+<span class="kt">int</span> <span class="nf">lookup_example</span><span class="p">(</span><span class="kt">int</span> <span class="n">count</span><span class="p">)</span> <span class="c1">// (2)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// (3)</span>
+    <span class="n">lookup_example</span><span class="p">(</span><span class="n">count</span><span class="p">);</span> <span class="c1">// unqualified count refers to (3)</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">count</span> <span class="o">+</span> <span class="o">::</span><span class="n">count</span><span class="p">;</span> <span class="c1">// the first (unqualified) count refers to (2);</span>
+<span class="p">}</span> <span class="c1">// the second (qualified) count refers to (1)</span>
+</code></pre></div></div>
+
+<p>How to find the pos of an elem in a vector:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+<span class="kt">int</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">begin</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">end</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">e</span><span class="p">)</span> <span class="o">-</span> <span class="n">begin</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="effective-c">Effective C++</h1>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">ptr</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>First const: what <code class="language-plaintext highlighter-rouge">ptr</code> points to is const.
+Second const: ptr can’t be made to point to a different location, so <code class="language-plaintext highlighter-rouge">ptr</code> is const.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// return size of an array as a compile-time constant. (The</span>
+<span class="c1">// array parameter has no name, because we care only about</span>
+<span class="c1">// the number of elements it contains.)</span>
+<span class="c1">//</span>
+<span class="c1">// constexpr makes its result available during compilation.</span>
+<span class="c1">// noexcept help compiler generate better code.</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">N</span><span class="p">&gt;</span>
+<span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">arraySize</span><span class="p">(</span><span class="n">T</span> <span class="p">(</span><span class="o">&amp;</span><span class="p">)[</span><span class="n">N</span><span class="p">])</span> <span class="k">noexcept</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">N</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="item-2-understand-auto-type-deduction">Item 2: UNderstand <code class="language-plaintext highlighter-rouge">auto</code> type deduction</h2>
+
+<h3 id="tldr">TLDR</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">auto</code> type deduction is usually the same as template type deduction, but <code class="language-plaintext highlighter-rouge">auto</code> type deduction assumes that a braced initializer represents a <code class="language-plaintext highlighter-rouge">std::initializer_list</code>, and template type deduction doesn’t.</li>
+  <li><code class="language-plaintext highlighter-rouge">auto</code> in a function return type or a lambda parameter implies template type deduction, not <code class="language-plaintext highlighter-rouge">auto</code> type deduction.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">auto</code> type deduction works like template type deduction.</p>
+
+<p>array and function names decay into ptrs for non-ref type specifiers.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">char</span> <span class="n">name</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"R. N. Briggs"</span><span class="p">;</span><span class="c1">// name's type is const char[13]</span>
+<span class="k">auto</span> <span class="n">arr1</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span><span class="c1">// arr1's type is const char*</span>
+<span class="k">auto</span><span class="o">&amp;</span> <span class="n">arr2</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span><span class="c1">// arr2's type is const char (&amp;)[13]</span>
+
+<span class="kt">void</span> <span class="nf">someFunc</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">);</span><span class="c1">// someFunc is a function; type is void(int, double)</span>
+<span class="k">auto</span> <span class="n">func1</span> <span class="o">=</span> <span class="n">someFunc</span><span class="p">;</span><span class="c1">// func1's type is void (*)(int, double)</span>
+<span class="k">auto</span><span class="o">&amp;</span> <span class="n">func2</span> <span class="o">=</span> <span class="n">someFunc</span><span class="p">;</span><span class="c1">// func2's type is void (&amp;)(int, double)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">auto</code> may differ from template:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">auto</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span><span class="c1">// type is int, value is 27</span>
+<span class="k">auto</span> <span class="nf">x2</span><span class="p">(</span><span class="mi">27</span><span class="p">);</span><span class="c1">// ditto</span>
+<span class="k">auto</span> <span class="n">x3</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">27</span> <span class="p">};</span><span class="c1">// type is std::initializer_list&lt;int&gt;, value is { 27 }</span>
+<span class="k">auto</span> <span class="n">x4</span><span class="p">{</span> <span class="mi">27</span> <span class="p">};</span><span class="c1">// ditto</span>
+</code></pre></div></div>
+
+<p>When an auto–declared variable is initialized with a
+braced initializer, the deduced type is an instantiation of <code class="language-plaintext highlighter-rouge">std::initializer_list</code>.</p>
+
+<p>a function with an <code class="language-plaintext highlighter-rouge">auto</code> return type that returns a braced initializer won’t compile(these uses of
+<code class="language-plaintext highlighter-rouge">auto</code> employ template type deduction):</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">auto</span> <span class="nf">createInitList</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="k">return</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>
+<span class="p">}</span>
+<span class="c1">// error: can't deduce type</span>
+<span class="c1">// for { 1, 2, 3 }</span>
+</code></pre></div></div>
+
+<h2 id="item-3-understand-decltype">Item 3: Understand decltype</h2>
+
+<h3 id="tldr-1">TLDR</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">decltype</code> almost always yields the type of a variable or expression without any modifications.</li>
+  <li>For lvalue expressions of type <code class="language-plaintext highlighter-rouge">T</code> other than names, decltype always reports a type of <code class="language-plaintext highlighter-rouge">T&amp;</code>`.</li>
+  <li>C++14 supports <code class="language-plaintext highlighter-rouge">decltype(auto)</code>, which, like <code class="language-plaintext highlighter-rouge">auto</code>, deduces a type from its initializer, but it performs the type deduction using the <code class="language-plaintext highlighter-rouge">decltype</code> rules.</li>
+</ul>
+
+<p>A trailing return type has the advantage that the function’s params can be used in the specification of the return type.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">Container</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">Index</span><span class="p">&gt;</span>
+<span class="k">auto</span> <span class="nf">ABC</span><span class="p">(</span><span class="n">Container</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">,</span> <span class="n">Index</span> <span class="n">i</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span> <span class="n">f1</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="err">…</span>
+<span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="c1">// decltype(x) is int, so f1 returns int</span>
+<span class="p">}</span>
+<span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span> <span class="n">f2</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="err">…</span>
+<span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="c1">// decltype((x)) is int&amp;, so f2 returns int&amp;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="item-6-use-the-explicitly-typed-initializer-idiom-when-auto-deduces-undesired-types">Item 6: Use the explicitly typed initializer idiom when auto deduces undesired types</h2>
+
+<h4 id="tldr-2">TLDR</h4>
+
+<ol>
+  <li>“Invisible” proxy types can cause <code class="language-plaintext highlighter-rouge">auto</code> to deduce the “wrong” type for an initializing expression.</li>
+  <li>The explicitly typed initializer idiom forces <code class="language-plaintext highlighter-rouge">auto</code> to deduce the type you want it to have.</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">();</span>
+<span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n">f</span><span class="p">()[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// v is not bool type</span>
+<span class="n">f2</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="c1">// undefined behavior!</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">v</code> has a type of <code class="language-plaintext highlighter-rouge">std::vector&lt;bool&gt;::reference</code>, because:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">operator[]</code> for <code class="language-plaintext highlighter-rouge">std::vector&lt;T&gt;</code> is supposed to return a <code class="language-plaintext highlighter-rouge">T&amp;</code>.</li>
+  <li>C++ forbids references for bits.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">std::vector&lt;bool&gt;::reference</code> it returns contains a pointer to a word in the data structure holding the bits, and it’s managed by a temporary <code class="language-plaintext highlighter-rouge">std::vector&lt;bool&gt;</code> object. At the end, the temp object is destroyed, and <code class="language-plaintext highlighter-rouge">v</code> contains a dangling pointer.</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">v</span> <span class="o">=</span> <span class="n">f</span><span class="p">()[</span><span class="mi">1</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>Here <code class="language-plaintext highlighter-rouge">std::vector&lt;bool&gt;::reference</code> is implicitly converted to <code class="language-plaintext highlighter-rouge">bool</code>.
+<code class="language-plaintext highlighter-rouge">std::vector&lt;bool&gt;::reference</code> is a <i>proxy class</i>. Smart pointer is also a proxy class.</p>
+
+<p>Avoid <code class="language-plaintext highlighter-rouge">auto v = expression of "invisible" proxy class type;</code></p>
+
+<h4 id="explicitly-typed-initializer-idiom">explicitly typed initializer idiom</h4>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">()[</span><span class="mi">1</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>This can also be useful to emphasize that you’re deliberately creating a variable of a type that’s different from the one generated by the initializing expression, which makes things transparent.</p>
+
+<h2 id="item-7-distinguish-between--and--when-creating-objects">Item 7: Distinguish between () and {} when creating objects</h2>
+
+<h4 id="tldr-3">TLDR</h4>
+
+<ol>
+  <li>Braced initialization is the most widely usable initialization syntax, it prevents narrowing conversions, and it’s immune to C++’s most vexing parse.</li>
+  <li>During constructor overload resolution, braced initializers are matched to <code class="language-plaintext highlighter-rouge">std::initializer_list</code> parameters if at all possible, even if other constructors offer seemingly better matches.</li>
+  <li>An example of where the choice between parentheses and braces can make a significant difference is creating a <code class="language-plaintext highlighter-rouge">std::vector&lt;numeric type&gt;</code> with two arguments.</li>
+  <li>Choosing between parentheses and braces for object creation inside templates can be challenging.</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Widget</span> <span class="n">w1</span><span class="p">;</span> <span class="c1">// call default constructor</span>
+<span class="n">Widget</span> <span class="n">w2</span> <span class="o">=</span> <span class="n">w1</span><span class="p">;</span> <span class="c1">// not an assignmentl; calls copy ctor</span>
+<span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="p">;</span> <span class="c1">// an assignment; calls copy operator=</span>
+</code></pre></div></div>
+
+<p>C++11 introduces <em>uniform initialization</em>:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span> <span class="c1">// v's initial content is 1,3,5</span>
+</code></pre></div></div>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="kt">int</span> <span class="n">sum1</span><span class="p">{</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">z</span><span class="p">};</span> <span class="c1">//err, sum of doubles may not be expressible as int</span>
+</code></pre></div></div>
+
+<p>Cons:</p>
+
+<ul>
+  <li>Confusion with <code class="language-plaintext highlighter-rouge">std::initializer_list</code>. Class’s ctor with <code class="language-plaintext highlighter-rouge">std::initializer_list</code> as param is always used if invoked by <code class="language-plaintext highlighter-rouge">Class{...}</code>, even if it might be a worse match comparing with other ctors.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Widget</span> <span class="p">{</span>
+<span class="nl">public:</span>
+<span class="n">Widget</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">b</span><span class="p">);</span>
+<span class="n">Widget</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">double</span> <span class="n">d</span><span class="p">);</span>
+
+<span class="n">Widget</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="n">Widget</span> <span class="n">w</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">};</span> <span class="c1">// error! requires narrowing conversions</span>
+</code></pre></div></div>
+
+<p>Templ implications:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="c1">// type of object to create</span>
+        <span class="k">typename</span><span class="o">...</span> <span class="nc">Ts</span><span class="p">&gt;</span> <span class="c1">// types of arguments to use</span>
+<span class="kt">void</span> <span class="nf">doSomeWork</span><span class="p">(</span><span class="n">Ts</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">params</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">create</span> <span class="n">local</span> <span class="n">T</span> <span class="n">object</span> <span class="n">from</span> <span class="n">params</span><span class="p">...</span>
+  <span class="err">…</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>There are two ways to turn the line of pseudocode into real code:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">T</span> <span class="nf">localObject</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">)...);</span><span class="c1">// using parens</span>
+<span class="n">T</span> <span class="n">localObject</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">)...};</span><span class="c1">// using braces</span>
+</code></pre></div></div>
+
+<p>Caller’s code:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+<span class="err">…</span>
+<span class="n">doSomeWork</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>If doSomeWork uses parentheses when creating localObject, the result is a
+std::vector with 10 elements. If doSomeWork uses braces, the result is a std::vec
+tor with 2 elements. Which is correct? The author of doSomeWork can’t know. Only
+the caller can.</p>
+
+<h2 id="item-8-prefer-nullptr-to-0-and-null">Item 8: prefer nullptr to 0 and NULL</h2>
+
+<h4 id="tldr-4">TLDR</h4>
+
+<ul>
+  <li>Prefer <code class="language-plaintext highlighter-rouge">nullptr</code> to 0 and NULL.</li>
+  <li>Avoid overloading on integral and pointer types.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">nullptr</code>’s type is <code class="language-plaintext highlighter-rouge">std::nullptr_t</code>, which implicitly converts to all raw pointer types.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span> <span class="c1">// calls f(void*) overload</span>
+</code></pre></div></div>
+
+<h2 id="item-9-prefer-alias-declarations-to-typedefs">Item 9: Prefer alias declarations to typedefs</h2>
+
+<h4 id="tldr-5">TLDR</h4>
+
+<ul>
+  <li>alias declarations maybe templatized while <code class="language-plaintext highlighter-rouge">typedef</code>s cannot.</li>
+  <li>Alias templates avoid the “::type” suffix and, in templates, the “typename” prefix often required to refer to typedefs.</li>
+</ul>
+
+<h2 id="item-10-prefer-scoped-enums-to-unscoped-enums">Item 10: Prefer scoped enums to unscoped enums</h2>
+
+<h4 id="tldr-6">TLDR</h4>
+
+<ul>
+  <li>C++98-style enums are now known as unscoped enums.</li>
+  <li>Enumerators of scoped enums are visible only within the enum. They convert to other types only with a cast.</li>
+  <li>Both scoped and unscoped enums support specification of the underlying type. The default underlying type for scoped enums is int. Unscoped enums have no default underlying type.</li>
+  <li>Scoped enums may always be forward-declared. Unscoped enums may be forward-declared only if their declaration specifies an underlying type.</li>
+</ul>
+
+<p>Scoped enums:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">Color</span> <span class="p">{</span> <span class="n">black</span><span class="p">,</span> <span class="n">white</span><span class="p">,</span> <span class="n">red</span> <span class="p">};</span> <span class="c1">// black, white, red are scoped to Color</span>
+<span class="k">auto</span> <span class="n">white</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// fine, no other `white` in scope</span>
+<span class="n">Color</span> <span class="n">c</span> <span class="o">=</span> <span class="n">white</span><span class="p">;</span> <span class="c1">// err! no enum named `white` is in this scope</span>
+<span class="n">Color</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Color</span><span class="o">::</span><span class="n">white</span><span class="p">;</span> <span class="c1">//fine</span>
+<span class="k">auto</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Color</span><span class="o">::</span><span class="n">white</span><span class="p">;</span> <span class="c1">// fine</span>
+</code></pre></div></div>
+
+<p>Advs:</p>
+
+<ul>
+  <li>enumerators are mush more strongly typed. Enumerators for unscoped enums implicitly convert to integral types (and, from there, to floating-point types)</li>
+  <li>their names may be forward-declared(Ex: <code class="language-plaintext highlighter-rouge">enum class Color;</code>), and changing the definition of the enum class(Ex: add a new child) requires no recompilation.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">Status</span><span class="p">;</span> <span class="c1">//underlying type is int</span>
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">Status</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span><span class="p">;</span> <span class="c1">// underlying type is std::uint32_t(from &lt;cstdint)</span>
+</code></pre></div></div>
+
+<p>Unscoped enums:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="n">Color</span> <span class="p">{</span> <span class="n">black</span><span class="p">,</span> <span class="n">white</span><span class="p">,</span> <span class="n">red</span> <span class="p">};</span> <span class="c1">// black, white, red are in same scope as Color</span>
+<span class="k">auto</span> <span class="n">white</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// err! whilte already decleared in this scope</span>
+</code></pre></div></div>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="hydejack" /><summary type="html"><![CDATA[Understanding on important concepts from C++ template programming, and sections in effective C++.]]></summary></entry></feed>
