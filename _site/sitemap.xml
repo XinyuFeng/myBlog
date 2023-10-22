@@ -2,15 +2,19 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://localhost:4000/myBlog/tag/hyde/</loc>
-<lastmod>2023-10-22T17:03:51-04:00</lastmod>
+<lastmod>2023-10-22T17:57:29-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/myBlog/tag/hydejack/</loc>
-<lastmod>2023-10-22T17:03:51-04:00</lastmod>
+<lastmod>2023-10-22T17:57:29-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/myBlog/2023/10/01/C++/</loc>
 <lastmod>2023-10-01T00:00:00-04:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/myBlog/2023/10/21/let-the-wind-goes/</loc>
+<lastmod>2023-10-21T00:00:00-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/myBlog/404/</loc>

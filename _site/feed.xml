@@ -1,5 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/myBlog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/myBlog/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-10-22T17:03:51-04:00</updated><id>http://localhost:4000/myBlog/feed.xml</id><title type="html">blog</title><subtitle>A Jekyll theme with JavaScript powers. &quot;Best Theme by a Mile&quot;. Combines the best of static sites and modern web apps. Open `_config.yml` to edit this text.
-</subtitle><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><entry><title type="html">C++ Understanding</title><link href="http://localhost:4000/myBlog/2023/10/01/C++/" rel="alternate" type="text/html" title="C++ Understanding" /><published>2023-10-01T00:00:00-04:00</published><updated>2023-10-01T00:00:00-04:00</updated><id>http://localhost:4000/myBlog/2023/10/01/C++</id><content type="html" xml:base="http://localhost:4000/myBlog/2023/10/01/C++/"><![CDATA[<p><a href="http://ultra.sdk.free.fr/docs/DxO/C%2B%2B%20Templates%20The%20Complete%20Guide.pdf">C++ template complete guide</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/myBlog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/myBlog/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-10-22T17:57:29-04:00</updated><id>http://localhost:4000/myBlog/feed.xml</id><title type="html">blog</title><subtitle>A Jekyll theme with JavaScript powers. &quot;Best Theme by a Mile&quot;. Combines the best of static sites and modern web apps. Open `_config.yml` to edit this text.
+</subtitle><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><entry><title type="html">7年北美回议录</title><link href="http://localhost:4000/myBlog/2023/10/21/let-the-wind-goes/" rel="alternate" type="text/html" title="7年北美回议录" /><published>2023-10-21T00:00:00-04:00</published><updated>2023-10-21T00:00:00-04:00</updated><id>http://localhost:4000/myBlog/2023/10/21/let-the-wind-goes</id><content type="html" xml:base="http://localhost:4000/myBlog/2023/10/21/let-the-wind-goes/"><![CDATA[<p>人生如梦，几番起伏总不平</p>
+
+<p>2016 年，我驾飞机进入了美国 <br />
+先进了 USC, 后到了阳光谷 <br />
+尝到了香喷喷的 TACO BELL， 和可口的 PANDA EXPRESS <br />
+领略了加州的阳光，感受了纽约的繁华 <br />
+并有幸入驻 GoogleMTV 2 年 <br />
+我欲在此风雨同舟， 却抵挡不住 H1B 的残酷 <br />
+便于 21 年远赴滑铁卢至今 <br />
+没了 PANDA， 却依然有 TACO BELL <br />
+这里亦有山有水，和友善的人们 <br />
+且有幸和滑铁卢大学的优秀人才们合作</p>
+
+<p>至此</p>
+
+<p>风里雨里，博客里等你。</p>
+
+<p>未完待续</p>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="hydejack" /><summary type="html"><![CDATA[北美7年回忆录]]></summary></entry><entry><title type="html">C++ Understanding</title><link href="http://localhost:4000/myBlog/2023/10/01/C++/" rel="alternate" type="text/html" title="C++ Understanding" /><published>2023-10-01T00:00:00-04:00</published><updated>2023-10-01T00:00:00-04:00</updated><id>http://localhost:4000/myBlog/2023/10/01/C++</id><content type="html" xml:base="http://localhost:4000/myBlog/2023/10/01/C++/"><![CDATA[<p><a href="http://ultra.sdk.free.fr/docs/DxO/C%2B%2B%20Templates%20The%20Complete%20Guide.pdf">C++ template complete guide</a></p>
 
 <p>template template parameters:
 The name of a template parameter of a template template parameter can be used only in the declaration of other
